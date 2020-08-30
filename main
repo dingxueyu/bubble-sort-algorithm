@@ -1,0 +1,34 @@
+#include <iostream>//预处理部分
+using namespace std;
+void bubble(int v[],int size);//双击错误的地方就能找到相应错误的地方
+//就这个地方（是中文符号，然后标识符int不显示是正确的，就一大堆错误，我真的醉了，错误显示不正确
+int main()
+{
+	int vn[]={12,58,56,589,5422,555,42,564,598,214};
+	int len=sizeof(vn)/sizeof(int);//这个直接输入数组名字就行了嘛？直接输入数组名字，然后就能说明是长度了？
+	for(int i=0;i<len;i++)
+	{
+		cout<<vn[i]<<',';
+	}
+	cout<<endl<<endl;
+	bubble(vn,len);//前面的参数就是数组的名字，后面是数组的长度
+   return 0;
+}
+void bubble(int v[],int size)//这个就是主函数之外定义的函数
+	//写这个代码任务的时候，需要逻辑，需要整体的思路
+{
+	int temp;
+	for(int j=1;j<size;j++)
+	{
+		for(int i=0;i<size-j;i++)
+			if (v[i]>v[i+1])
+			{
+				temp=v[i];
+				v[i]=v[i+1];
+				v[i+1]=temp;
+			}
+		for(int i=0;i<size;i++)
+			cout<<v[i]<<',';
+		cout<<endl;
+	}
+}
